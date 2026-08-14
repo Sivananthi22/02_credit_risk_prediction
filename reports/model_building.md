@@ -279,3 +279,46 @@ Build Another Tree
 Final Strong Model
 
 Each new tree attempts to improve the weaknesses of the previous model.
+
+21. Why XGBoost?
+
+XGBoost is particularly strong for:
+
+Tabular data
+Classification
+Nonlinear relationships
+Feature interactions
+
+It is commonly used in competitive machine learning and real-world predictive systems.
+
+22. Advantages of XGBoost
+Excellent predictive performance
+Handles nonlinear relationships
+Strong performance on tabular datasets
+Supports regularization
+Provides feature importance
+23. Limitations of XGBoost
+More complex than Logistic Regression
+Requires hyperparameter tuning
+Can overfit if poorly configured
+Less naturally interpretable
+24. Model Comparison Strategy
+
+All models will be trained using the same training data.
+
+They will then be evaluated using the same testing data.
+
+The comparison will include:
+
+Model	Purpose
+Logistic Regression	Baseline
+Decision Tree	Simple nonlinear model
+Random Forest	Ensemble model
+XGBoost	Advanced boosting model
+25. Model Evaluation
+
+Accuracy alone is not sufficient for this project.
+
+Credit risk prediction is an imbalanced classification problem.
+
+Therefore, several evaluation metrics will be used.
