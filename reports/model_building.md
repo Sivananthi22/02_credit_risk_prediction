@@ -475,3 +475,134 @@ Possible approaches:
 Grid Search
 Randomized Search
 Cross-Validation
+
+37. Cross-Validation
+
+Cross-validation evaluates a model across multiple training and validation splits.
+
+For example, with 5-fold cross-validation:
+
+Fold 1 → Validation
+Fold 2 → Training
+Fold 3 → Training
+Fold 4 → Training
+Fold 5 → Training
+
+The process is repeated so that every fold is used as validation data.
+
+This provides a more reliable estimate of model performance.
+
+38. Model Selection
+
+The final model should not necessarily be the one with the highest accuracy.
+
+Selection should consider:
+
+Recall
+Precision
+F1 Score
+ROC-AUC
+Business requirements
+Interpretability
+Computational cost
+
+A slightly less accurate model may be preferable if it identifies risky customers more effectively.
+
+39. Model Explainability
+
+After selecting the final model, we will investigate:
+
+Why did the model classify this customer as high risk?
+
+Techniques include:
+
+Feature Importance
+
+Shows which features contribute most to predictions.
+
+SHAP
+
+SHAP provides detailed explanations of individual predictions.
+
+Example:
+
+Customer A
+      ↓
+Bad Risk Prediction
+      ↓
+Reasons:
+Credit History → High Impact
+Loan Duration → Medium Impact
+Credit Amount → Medium Impact
+40. Complete Model Development Workflow
+Preprocessed Data
+        ↓
+Train Models
+        ↓
+Logistic Regression
+        ↓
+Decision Tree
+        ↓
+Random Forest
+        ↓
+XGBoost
+        ↓
+Evaluate Models
+        ↓
+Compare Metrics
+        ↓
+Hyperparameter Tuning
+        ↓
+Select Final Model
+        ↓
+Explain Predictions
+        ↓
+Deployment
+41. Expected Outcome
+
+At the end of this phase, we should have:
+
+Multiple trained classification models
+Evaluation metrics for every model
+Confusion matrices
+ROC curves
+Model comparison
+Selected best-performing model
+Saved trained model
+42. Next Phase
+
+After model building, the project will move to:
+
+Model Explainability
+
+We will investigate:
+
+Which features influence credit risk?
+Why was a customer classified as risky?
+How confident is the model?
+Which features are most important?
+
+The primary tool will be:
+
+SHAP (SHapley Additive exPlanations)
+
+43. Conclusion
+
+The model-building phase transforms the preprocessed German Credit dataset into predictive machine learning models.
+
+The project will compare simple and advanced algorithms:
+
+Logistic Regression
+Decision Tree
+Random Forest
+XGBoost
+
+Rather than relying only on accuracy, the models will be evaluated using multiple classification metrics, with particular attention to identifying bad-risk customers.
+
+The final objective is not simply to achieve a high score, but to build a model that is:
+
+Predictive
+Reliable
+Explainable
+Appropriate for financial risk assessment
+Suitable for eventual deployment
