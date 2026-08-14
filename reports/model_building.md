@@ -190,3 +190,44 @@ Is loan duration high?
 Bad Credit Risk
 
 The actual trained tree will contain many more conditions.
+
+13. Advantages of Decision Trees
+Easy to understand
+Can capture nonlinear relationships
+Handles numerical and categorical patterns
+Does not require feature scaling
+14. Limitations of Decision Trees
+
+A Decision Tree can easily overfit the training data.
+
+Overfitting occurs when the model learns the training data too closely and performs poorly on unseen data.
+
+To control this, parameters such as:
+
+max_depth
+min_samples_split
+min_samples_leaf
+
+can be used.
+
+15. Model 3 – Random Forest
+What is Random Forest?
+
+Random Forest is an ensemble learning algorithm.
+
+Instead of using one Decision Tree, Random Forest creates many Decision Trees.
+
+Conceptually:
+
+              Dataset
+                 |
+       ┌─────────┼─────────┐
+       ↓         ↓         ↓
+    Tree 1    Tree 2    Tree 3
+       ↓         ↓         ↓
+    Good       Bad       Good
+       \         |         /
+        \        |        /
+         Final Prediction
+
+The individual trees vote on the final classification.
