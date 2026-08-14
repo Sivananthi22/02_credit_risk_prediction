@@ -157,3 +157,36 @@ May not capture complex nonlinear relationships
 Can be affected by multicollinearity
 
 Therefore, it will mainly serve as a baseline model.
+
+11. Model 2 – Decision Tree
+What is a Decision Tree?
+
+A Decision Tree makes predictions by repeatedly splitting the dataset according to feature conditions.
+
+Conceptually:
+
+Credit History?
+       |
+   ┌───┴────┐
+  Good     Poor
+   |         |
+Loan      Checking
+Amount?   Account?
+
+The tree continues splitting until it reaches a final prediction.
+
+12. Example
+
+A simplified credit decision tree could work like:
+
+Is credit history good?
+        |
+      No
+        ↓
+Is loan duration high?
+        |
+      Yes
+        ↓
+Bad Credit Risk
+
+The actual trained tree will contain many more conditions.
