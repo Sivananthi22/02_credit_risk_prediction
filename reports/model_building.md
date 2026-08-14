@@ -403,3 +403,75 @@ The value ranges approximately from:
 1.0 → Perfect discrimination
 
 Higher ROC-AUC generally indicates better class separation.
+
+32. Which Metric is Most Important?
+
+For this project, we should pay particular attention to:
+
+Recall
+F1 Score
+ROC-AUC
+Precision
+Accuracy
+
+The exact priority depends on the business objective.
+
+If the bank wants to minimize missed risky customers, recall for the bad-risk class becomes especially important.
+
+33. Baseline Model
+
+The first model should be Logistic Regression.
+
+Why?
+
+Because it provides a simple reference point.
+
+For example:
+
+Logistic Regression
+Accuracy = 75%
+F1 Score = 65%
+ROC-AUC = 78%
+
+Other models can then be compared against this baseline.
+
+34. Model Comparison Table
+
+After training, we will create a table such as:
+
+Model	Accuracy	Precision	Recall	F1	ROC-AUC
+Logistic Regression	-	-	-	-	-
+Decision Tree	-	-	-	-	-
+Random Forest	-	-	-	-	-
+XGBoost	-	-	-	-	-
+
+The actual values will be filled in after model training.
+
+35. Hyperparameter Tuning
+
+After identifying the strongest initial model, hyperparameter tuning can be performed.
+
+Hyperparameters are settings chosen before model training.
+
+Examples:
+
+Random Forest
+n_estimators
+max_depth
+min_samples_split
+XGBoost
+n_estimators
+max_depth
+learning_rate
+subsample
+36. Why Tune Hyperparameters?
+
+The default settings may not provide the best performance.
+
+Tuning searches for better combinations of model parameters.
+
+Possible approaches:
+
+Grid Search
+Randomized Search
+Cross-Validation
