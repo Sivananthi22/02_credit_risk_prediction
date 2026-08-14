@@ -231,3 +231,51 @@ Conceptually:
          Final Prediction
 
 The individual trees vote on the final classification.
+
+16. Why Random Forest?
+
+Random Forest generally performs better than a single Decision Tree because it reduces the effect of individual tree errors.
+
+It can capture:
+
+Nonlinear relationships
+Feature interactions
+Complex patterns
+17. Advantages of Random Forest
+Strong predictive performance
+Less overfitting than a single Decision Tree
+Handles nonlinear relationships
+Provides feature importance
+Works well with mixed feature types
+18. Limitations of Random Forest
+Less interpretable than a single tree
+Can require more computational resources
+Large forests can become memory intensive
+19. Model 4 – XGBoost
+What is XGBoost?
+
+XGBoost stands for:
+
+Extreme Gradient Boosting
+
+It is a powerful gradient boosting algorithm frequently used for structured/tabular datasets.
+
+20. How Boosting Works
+
+Instead of building independent trees, boosting builds trees sequentially.
+
+Conceptually:
+
+Initial Model
+      ↓
+Find Errors
+      ↓
+Build Next Tree
+      ↓
+Correct Previous Errors
+      ↓
+Build Another Tree
+      ↓
+Final Strong Model
+
+Each new tree attempts to improve the weaknesses of the previous model.
