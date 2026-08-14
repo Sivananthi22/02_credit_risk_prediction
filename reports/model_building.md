@@ -322,3 +322,84 @@ Accuracy alone is not sufficient for this project.
 Credit risk prediction is an imbalanced classification problem.
 
 Therefore, several evaluation metrics will be used.
+
+26. Accuracy
+
+Accuracy measures the proportion of all predictions that are correct.
+
+Accuracy =
+Correct Predictions / Total Predictions
+
+Example:
+
+If the model correctly predicts 180 out of 200 customers:
+
+Accuracy = 90%
+
+However, accuracy can be misleading when classes are imbalanced.
+
+27. Confusion Matrix
+
+A confusion matrix provides a detailed view of classification results.
+
+
+	Predicted Good	Predicted Bad
+Actual Good	True Negative	False Positive
+Actual Bad	False Negative	True Positive
+
+The four components are:
+
+True Positive (TP)
+
+Bad-risk customer correctly identified as bad risk.
+
+True Negative (TN)
+
+Good-risk customer correctly identified as good risk.
+
+False Positive (FP)
+
+Good-risk customer incorrectly classified as bad risk.
+
+False Negative (FN)
+
+Bad-risk customer incorrectly classified as good risk.
+
+28. Precision
+
+Precision answers:
+
+Of the customers predicted as bad risk, how many were actually bad risk?
+
+Precision = TP / (TP + FP)
+
+High precision means fewer good customers are incorrectly classified as risky.
+
+29. Recall
+
+Recall answers:
+
+Of all truly bad-risk customers, how many did the model identify?
+
+Recall = TP / (TP + FN)
+
+Recall is especially important in credit risk prediction because failing to identify a risky borrower can result in financial loss.
+
+30. F1 Score
+
+F1 Score combines Precision and Recall.
+
+F1 = 2 × (Precision × Recall) / (Precision + Recall)
+
+It is useful when there is a trade-off between precision and recall.
+
+31. ROC-AUC
+
+ROC-AUC measures how well the model distinguishes between the two classes across different classification thresholds.
+
+The value ranges approximately from:
+
+0.5 → Random performance
+1.0 → Perfect discrimination
+
+Higher ROC-AUC generally indicates better class separation.
