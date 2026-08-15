@@ -246,3 +246,78 @@ ROC-AUC	Interpretation
 0.90–1.00	Excellent
 
 These ranges are guidelines rather than strict rules.
+
+20. Precision-Recall Relationship
+
+There is often a trade-off between Precision and Recall.
+
+Increasing the threshold may:
+
+Increase Precision
+Decrease Recall
+
+Decreasing the threshold may:
+
+Increase Recall
+Decrease Precision
+
+Therefore, the appropriate threshold depends on the business objective.
+
+21. Credit Risk Perspective
+
+For this project, the cost of different errors is not equal.
+
+Consider:
+
+False Positive
+
+A good customer is incorrectly classified as risky.
+
+Potential consequence:
+
+Loan may be rejected
+False Negative
+
+A risky customer is incorrectly classified as good.
+
+Potential consequence:
+
+Loan may be approved
+↓
+Customer defaults
+↓
+Financial loss
+
+Therefore, False Negatives may carry greater business risk.
+
+22. Model Evaluation Strategy
+
+The following models will be evaluated:
+
+Logistic Regression
+Decision Tree
+Random Forest
+XGBoost
+
+Each model will be tested using the same test dataset.
+
+23. Evaluation Metrics
+
+The following metrics will be recorded:
+
+Accuracy
+Precision
+Recall
+F1 Score
+ROC-AUC
+24. Model Comparison
+
+A comparison table will be created.
+
+Model	Accuracy	Precision	Recall	F1 Score	ROC-AUC
+Logistic Regression	-	-	-	-	-
+Decision Tree	-	-	-	-	-
+Random Forest	-	-	-	-	-
+XGBoost	-	-	-	-	-
+
+The actual values will be filled after model evaluation.
