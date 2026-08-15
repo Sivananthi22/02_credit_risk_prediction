@@ -191,3 +191,58 @@ Business Question
 When the model says a customer is risky, how often is it correct?
 
 High precision means fewer good customers are incorrectly classified as risky.
+
+16. Recall
+
+Recall measures how many actual bad-risk customers were correctly identified.
+
+Recall =
+TP / (TP + FN)
+Business Question
+
+Of all truly risky customers, how many did the model identify?
+
+Recall is especially important for credit risk because missing a risky borrower can cause financial losses.
+
+17. F1 Score
+
+F1 Score combines Precision and Recall.
+
+F1 Score =
+2 × (Precision × Recall) /
+(Precision + Recall)
+
+F1 Score is useful when both false positives and false negatives matter.
+
+A higher F1 Score indicates a better balance between Precision and Recall.
+
+18. ROC Curve
+
+The ROC curve shows the relationship between:
+
+True Positive Rate
+False Positive Rate
+
+at different classification thresholds.
+
+The ROC curve helps determine how effectively a model separates:
+
+Good Risk
+
+from:
+
+Bad Risk
+19. ROC-AUC
+
+ROC-AUC represents the area under the ROC curve.
+
+General interpretation:
+
+ROC-AUC	Interpretation
+0.50	Random
+0.60–0.70	Weak
+0.70–0.80	Acceptable
+0.80–0.90	Strong
+0.90–1.00	Excellent
+
+These ranges are guidelines rather than strict rules.
