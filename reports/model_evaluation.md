@@ -73,3 +73,41 @@ Training Accuracy = 65%
 Testing Accuracy = 63%
 
 The model may not have enough complexity to represent the underlying relationships.
+
+7. Desired Model Behavior
+
+A good model should achieve:
+
+Strong training performance
+Strong testing performance
+Small generalization gap
+
+For example:
+
+Training Accuracy = 84%
+Testing Accuracy = 82%
+
+is generally more desirable than:
+
+Training Accuracy = 99%
+Testing Accuracy = 70%
+8. Confusion Matrix
+
+The confusion matrix is one of the most important tools for evaluating classification models.
+
+For binary classification:
+
+
+	Predicted Good	Predicted Bad
+Actual Good	True Negative	False Positive
+Actual Bad	False Negative	True Positive
+9. True Positive
+
+A True Positive occurs when:
+
+Actual = Bad Risk
+Prediction = Bad Risk
+
+The model correctly identifies a risky customer.
+
+This is important because the bank can take appropriate precautions.
