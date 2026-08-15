@@ -321,3 +321,76 @@ Random Forest	-	-	-	-	-
 XGBoost	-	-	-	-	-
 
 The actual values will be filled after model evaluation.
+
+25. Selecting the Best Model
+
+The best model will not necessarily be the model with the highest accuracy.
+
+The selection process should consider:
+
+Predictive Performance
+
+Does the model correctly identify risky customers?
+
+Recall
+
+Does the model detect a high proportion of bad-risk customers?
+
+Precision
+
+Does the model avoid incorrectly labeling good customers as risky?
+
+F1 Score
+
+Does the model provide a good balance between Precision and Recall?
+
+ROC-AUC
+
+Can the model distinguish between good and bad customers effectively?
+
+Interpretability
+
+Can financial analysts understand the model's predictions?
+
+26. Business-Oriented Model Selection
+
+Suppose two models produce:
+
+Model	Accuracy	Recall
+Model A	85%	60%
+Model B	83%	78%
+
+Model A has higher accuracy.
+
+However, Model B identifies more risky customers.
+
+If the bank considers missing risky customers particularly costly, Model B may be preferable.
+
+Therefore:
+
+Model selection should be driven by business objectives, not just a single metric.
+
+27. Cross-Validation
+
+A single train-test split can sometimes produce unstable results.
+
+Cross-validation provides a more reliable estimate.
+
+For example, with 5-fold cross-validation:
+
+Fold 1 → Validation
+Fold 2 → Training
+Fold 3 → Training
+Fold 4 → Training
+Fold 5 → Training
+
+The process is repeated so that every fold becomes the validation set.
+
+28. Benefits of Cross-Validation
+
+Cross-validation helps:
+
+Reduce dependence on one train-test split
+Detect unstable models
+Estimate generalization performance
+Compare models more reliably
