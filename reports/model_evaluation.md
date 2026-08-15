@@ -487,3 +487,122 @@ Are high-value loans frequently misclassified?
 This process is called:
 
 Error Analysis
+
+35. Model Stability
+
+A model should produce reasonably consistent performance across different samples.
+
+If performance changes significantly across cross-validation folds, the model may be unstable.
+
+This should be investigated before deployment.
+
+36. Final Evaluation Workflow
+Trained Models
+      ↓
+Generate Test Predictions
+      ↓
+Confusion Matrix
+      ↓
+Accuracy
+      ↓
+Precision
+      ↓
+Recall
+      ↓
+F1 Score
+      ↓
+ROC-AUC
+      ↓
+Cross-Validation
+      ↓
+Hyperparameter Tuning
+      ↓
+Model Comparison
+      ↓
+Select Final Model
+37. Expected Output
+
+At the end of model evaluation, we should have:
+
+Performance metrics for all models
+Confusion matrices
+ROC curves
+Precision-Recall curves
+Cross-validation results
+Model comparison table
+Best model selection
+Understanding of model errors
+38. Important Consideration
+
+A model with high accuracy is not automatically the best credit risk model.
+
+For this project, we should pay particular attention to:
+
+Recall for Bad Risk
+
+because failing to identify a risky borrower can potentially result in financial losses.
+
+However, extremely high recall at the cost of very low precision may cause too many good customers to be rejected.
+
+Therefore, the final model should balance:
+
+Risk Detection
++
+Customer Acceptance
++
+Model Reliability
+39. Connection to Model Explainability
+
+After selecting the final model, we need to understand:
+
+Why did the model make this prediction?
+
+For example:
+
+Customer
+   ↓
+Bad Risk Prediction
+   ↓
+Important Factors
+   ├── Poor Credit History
+   ├── Long Loan Duration
+   ├── Large Credit Amount
+   └── Low Savings
+
+This leads to the next phase:
+
+Model Explainability
+40. Next Phase
+
+The next stage will focus on Explainable AI (XAI).
+
+We will use:
+
+Feature Importance
+
+To determine which features are most influential overall.
+
+SHAP
+
+To understand both:
+
+Global model behavior
+Individual customer predictions
+41. Conclusion
+
+Model evaluation is essential for determining whether a credit risk prediction model is suitable for real-world use.
+
+The evaluation process will consider:
+
+Accuracy
+Precision
+Recall
+F1 Score
+ROC-AUC
+Confusion Matrix
+Cross-validation
+Error analysis
+
+The final model will be selected based on both statistical performance and business requirements.
+
+The ultimate objective is to build a model that can reliably identify bad-risk customers while avoiding unnecessary rejection of good customers.
