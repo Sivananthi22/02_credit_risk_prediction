@@ -394,3 +394,96 @@ Reduce dependence on one train-test split
 Detect unstable models
 Estimate generalization performance
 Compare models more reliably
+
+29. Hyperparameter Tuning
+
+After identifying promising models, hyperparameters can be optimized.
+
+Hyperparameters are settings selected before training.
+
+Examples:
+
+Random Forest
+n_estimators
+max_depth
+min_samples_split
+min_samples_leaf
+XGBoost
+n_estimators
+max_depth
+learning_rate
+subsample
+30. Grid Search
+
+Grid Search evaluates predefined combinations of hyperparameters.
+
+Example:
+
+max_depth = [3, 5, 7]
+n_estimators = [100, 200]
+
+The algorithm evaluates different combinations and selects the best-performing configuration according to the chosen metric.
+
+31. Randomized Search
+
+Randomized Search samples combinations from specified ranges.
+
+It can be more efficient than Grid Search when many hyperparameters are available.
+
+32. Evaluation Visualizations
+
+The following visualizations will be created:
+
+Confusion Matrix
+
+Shows classification errors.
+
+ROC Curve
+
+Shows discrimination performance.
+
+Precision-Recall Curve
+
+Useful for examining performance under class imbalance.
+
+Model Comparison Chart
+
+Allows visual comparison of evaluation metrics.
+
+33. Example Confusion Matrix Interpretation
+
+Suppose the model produces:
+
+True Negative  = 120
+False Positive = 20
+False Negative = 30
+True Positive  = 30
+
+The model correctly identifies:
+
+120 good-risk customers
+30 bad-risk customers
+
+But incorrectly classifies:
+
+20 good-risk customers as bad
+30 bad-risk customers as good
+
+The 30 False Negatives require particular attention because they represent risky customers that were not detected.
+
+34. Error Analysis
+
+Model evaluation should not stop at calculating metrics.
+
+We should also investigate incorrect predictions.
+
+Questions include:
+
+Which customers were misclassified?
+Are certain customer groups harder to classify?
+Are false negatives concentrated in particular categories?
+Are high-value loans frequently misclassified?
+
+This process is called:
+
+Error Analysis
