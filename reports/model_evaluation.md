@@ -148,3 +148,46 @@ Business Impact
 The bank may approve a risky customer and potentially suffer a financial loss.
 
 Therefore, reducing False Negatives can be an important business objective.
+
+13. Accuracy
+
+Accuracy measures the proportion of correct predictions.
+
+Accuracy =
+(TP + TN) / (TP + TN + FP + FN)
+
+Example:
+
+If the model correctly classifies 180 out of 200 customers:
+
+Accuracy = 90%
+14. Limitation of Accuracy
+
+Accuracy can be misleading when classes are imbalanced.
+
+Suppose:
+
+Good Risk = 700
+Bad Risk = 300
+
+A model that predicts every customer as Good Risk would achieve:
+
+Accuracy = 70%
+
+but it would identify:
+
+0% of Bad Risk customers
+
+Therefore, accuracy alone is not sufficient.
+
+15. Precision
+
+Precision measures how many customers predicted as bad risk were actually bad risk.
+
+Precision =
+TP / (TP + FP)
+Business Question
+
+When the model says a customer is risky, how often is it correct?
+
+High precision means fewer good customers are incorrectly classified as risky.
