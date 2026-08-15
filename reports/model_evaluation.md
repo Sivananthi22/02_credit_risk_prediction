@@ -111,3 +111,40 @@ Prediction = Bad Risk
 The model correctly identifies a risky customer.
 
 This is important because the bank can take appropriate precautions.
+
+10. True Negative
+
+A True Negative occurs when:
+
+Actual = Good Risk
+Prediction = Good Risk
+
+The model correctly identifies a low-risk customer.
+
+11. False Positive
+
+A False Positive occurs when:
+
+Actual = Good Risk
+Prediction = Bad Risk
+
+The model incorrectly identifies a good customer as risky.
+
+Business Impact
+
+The bank may reject a customer who could have successfully repaid the loan.
+
+12. False Negative
+
+A False Negative occurs when:
+
+Actual = Bad Risk
+Prediction = Good Risk
+
+This is particularly important in credit risk prediction.
+
+Business Impact
+
+The bank may approve a risky customer and potentially suffer a financial loss.
+
+Therefore, reducing False Negatives can be an important business objective.
