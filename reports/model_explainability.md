@@ -130,3 +130,81 @@ Feature importance cannot necessarily tell us:
 Why was Customer A classified as bad risk?
 
 For individual explanations, SHAP is more useful.
+
+9. What is SHAP?
+
+SHAP stands for:
+
+SHapley Additive exPlanations
+
+SHAP is based on concepts from cooperative game theory.
+
+The basic idea is to determine how much each feature contributes to a prediction.
+
+10. Simple Explanation of SHAP
+
+Imagine a model predicts:
+
+Bad Risk Probability = 80%
+
+SHAP can explain how different features moved the prediction toward or away from the bad-risk outcome.
+
+For example:
+
+Baseline Risk
+     ↓
+50%
+     ↓
+Poor Credit History
+     +15%
+     ↓
+Long Duration
+     +10%
+     ↓
+Large Credit Amount
+     +8%
+     ↓
+Strong Employment
+     -3%
+     ↓
+Final Prediction
+80%
+
+The exact values will depend on the trained model.
+
+11. SHAP Baseline
+
+SHAP explanations begin from a baseline prediction.
+
+The baseline represents the model's typical prediction across the dataset.
+
+Individual features then contribute positively or negatively relative to that baseline.
+
+Conceptually:
+
+Baseline Prediction
+       +
+Feature Contributions
+       =
+Individual Prediction
+12. Positive and Negative Contributions
+
+A feature can push a prediction toward:
+
+Bad Risk
+
+or:
+
+Good Risk
+
+For example:
+
+Poor Credit History
+        ↓
+Pushes toward Bad Risk
+
+while:
+
+Stable Employment
+        ↓
+Pushes toward Good Risk
