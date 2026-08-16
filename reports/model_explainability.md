@@ -307,3 +307,86 @@ Question:
 Why did the model make this prediction for this customer?
 
 Both are useful.
+
+18. Example Global Interpretation
+
+Suppose SHAP analysis shows:
+
+1. Credit History
+2. Checking Account
+3. Loan Duration
+4. Credit Amount
+5. Savings Account
+
+This suggests that the model relies heavily on previous financial behavior and current financial circumstances.
+
+19. Example Local Interpretation
+
+Suppose a customer receives:
+
+Bad Risk Probability = 0.82
+
+SHAP may show:
+
+Poor Credit History      → +0.20
+Long Loan Duration       → +0.12
+Large Credit Amount      → +0.08
+Low Savings              → +0.06
+Stable Employment        → -0.03
+
+This indicates which characteristics pushed the prediction toward bad risk.
+
+20. Explainability and Trust
+
+Explainability increases confidence in a model because analysts can investigate whether the model is using reasonable patterns.
+
+For example, if the model predicts high risk because of:
+
+Poor credit history
+Long repayment period
+Large loan amount
+
+the reasoning is financially understandable.
+
+21. Explainability and Model Debugging
+
+Explainability can also identify problems.
+
+Suppose the model heavily depends on an unexpected variable.
+
+For example:
+
+Telephone Ownership
+
+If it becomes one of the strongest predictors without a reasonable business explanation, this may require investigation.
+
+Potential causes include:
+
+Data artifacts
+Hidden correlations
+Sampling issues
+Leakage
+Proxy variables
+22. Feature Importance vs SHAP
+Feature Importance	SHAP
+Global view	Global + Local
+Easier to understand	More detailed
+Shows overall importance	Shows direction and magnitude
+Model-dependent	More flexible
+Limited individual explanation	Strong individual explanations
+23. Important Limitation
+
+Explainability does not automatically mean that the model is correct.
+
+A model can be:
+
+Explainable
+Consistent
+Wrong
+
+Therefore, explainability should be combined with:
+
+Good evaluation
+Domain knowledge
+Data validation
+Error analysis
