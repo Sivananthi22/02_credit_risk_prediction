@@ -390,3 +390,162 @@ Good evaluation
 Domain knowledge
 Data validation
 Error analysis
+
+24. Important Fairness Consideration
+
+Credit risk models can potentially learn patterns associated with sensitive or protected characteristics.
+
+Therefore, model explanations should be examined carefully.
+
+Features related to:
+
+Gender
+Personal status
+Foreign worker status
+
+should be considered carefully from both ethical and business perspectives.
+
+The goal is not simply to make predictions, but to ensure that the model's behavior is appropriate and defensible.
+
+25. Explainability Workflow for This Project
+
+The planned process is:
+
+Best Performing Model
+        ↓
+Calculate Feature Importance
+        ↓
+Create SHAP Explainer
+        ↓
+Calculate SHAP Values
+        ↓
+SHAP Summary Plot
+        ↓
+Feature Impact Analysis
+        ↓
+Individual Customer Explanation
+        ↓
+Business Interpretation
+26. Expected Visualizations
+
+The following visualizations will be created.
+
+Feature Importance Plot
+
+Shows the most important features.
+
+SHAP Summary Plot
+
+Shows:
+
+Feature importance
+Direction of influence
+Distribution of effects
+SHAP Bar Plot
+
+Shows average feature importance.
+
+Individual SHAP Plot
+
+Explains a specific customer's prediction.
+
+27. Example Interpretation
+
+After completing the analysis, an explanation might look like:
+
+The model classified the customer as high credit risk primarily because of poor credit history, longer loan duration, and a relatively high credit amount. Stable employment contributed slightly toward a lower-risk prediction.
+
+The actual explanation will be based on the trained model and SHAP results.
+
+28. Business Value
+
+Explainability allows financial institutions to move from:
+
+"Model says NO"
+
+to:
+
+"Model says NO because..."
+
+This is much more useful for real-world decision-making.
+
+29. Complete Explainability Pipeline
+Raw Customer Data
+       ↓
+Preprocessing
+       ↓
+Trained ML Model
+       ↓
+Prediction
+       ↓
+Feature Importance
+       ↓
+SHAP Analysis
+       ↓
+Global Explanation
+       ↓
+Individual Explanation
+       ↓
+Business Decision
+30. Next Phase
+
+After model explainability, the next major stage is:
+
+🚀 Model Deployment
+
+The selected model will be integrated into an application.
+
+The planned deployment architecture is:
+
+User
+ ↓
+Streamlit Web Application
+ ↓
+Input Customer Information
+ ↓
+Preprocessing Pipeline
+ ↓
+Trained Model
+ ↓
+Risk Probability
+ ↓
+Good / Bad Risk Prediction
+ ↓
+Explanation
+31. Expected Final Application
+
+The final application will allow a user to enter customer information such as:
+
+Age
+Credit Amount
+Loan Duration
+Credit History
+Savings Account
+Checking Account
+Employment
+Housing
+
+The application will return:
+
+Credit Risk Prediction
+        ↓
+Bad Risk
+
+Probability
+        ↓
+78%
+
+Main Factors
+        ↓
+Credit History
+Loan Duration
+Credit Amount
+32. Conclusion
+
+Model explainability is an important component of this credit risk prediction project.
+
+The objective is not only to predict whether a customer represents good or bad credit risk, but also to understand why the model made that prediction.
+
+Feature importance provides a global overview of model behavior, while SHAP provides detailed global and individual explanations.
+
+This makes the project more suitable for real-world financial applications where transparency, trust, and responsible decision-making are important.
