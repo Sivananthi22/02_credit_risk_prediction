@@ -208,3 +208,102 @@ while:
 Stable Employment
         ↓
 Pushes toward Good Risk
+
+13. Global SHAP Analysis
+
+Global SHAP analysis helps identify which features have the greatest influence across the entire dataset.
+
+A SHAP summary plot can show:
+
+Feature
+   ↓
+Credit History      ███████████
+Checking Account    █████████
+Duration            ███████
+Credit Amount       ██████
+Savings Account     █████
+Age                 ███
+
+The actual ranking will be determined after model training.
+
+14. Individual Prediction Explanation
+
+SHAP can also explain one specific customer.
+
+Example:
+
+Customer ID: Example Customer
+
+Prediction:
+Bad Credit Risk
+
+Important Factors:
+
+Credit History
+→ Increased Risk
+
+Loan Duration
+→ Increased Risk
+
+Credit Amount
+→ Increased Risk
+
+Savings
+→ Reduced Risk
+
+This provides a human-readable explanation of the prediction.
+
+15. SHAP for Tree-Based Models
+
+SHAP provides specialized explainers for tree-based models.
+
+Examples:
+
+Random Forest
+XGBoost
+Decision Tree
+
+A TreeExplainer can be used for suitable tree-based models.
+
+Conceptually:
+
+explainer = shap.TreeExplainer(model)
+
+Then SHAP values can be calculated for the data.
+
+16. SHAP Workflow
+
+The explainability workflow is:
+
+Trained Model
+      ↓
+Create SHAP Explainer
+      ↓
+Calculate SHAP Values
+      ↓
+Global Explanation
+      ↓
+Individual Explanation
+      ↓
+Interpret Model Behavior
+17. Global vs Local Explainability
+
+There are two major types of explanations.
+
+Global Explainability
+
+Explains the model as a whole.
+
+Question:
+
+Which features generally influence predictions?
+
+Local Explainability
+
+Explains one prediction.
+
+Question:
+
+Why did the model make this prediction for this customer?
+
+Both are useful.
