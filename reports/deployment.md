@@ -200,3 +200,97 @@ joblib.dump(
     model,
     '../models/credit_risk_model.pkl'
 )
+
+14. Why Feature Order Matters
+
+Suppose the model was trained using:
+
+Age
+Duration
+Credit Amount
+
+in a particular order.
+
+If the application sends:
+
+Credit Amount
+Age
+Duration
+
+the model may interpret the values incorrectly.
+
+Therefore, the feature order must remain consistent.
+
+15. Prediction
+
+The trained model can generate a class prediction.
+
+Conceptually:
+
+prediction = model.predict(input_data)
+
+Possible output:
+
+0
+
+or:
+
+1
+
+where:
+
+0 → Good Credit Risk
+1 → Bad Credit Risk
+16. Probability Prediction
+
+Many classification models can also provide probabilities.
+
+Example:
+
+probability = model.predict_proba(input_data)
+
+Possible output:
+
+Good Risk = 0.22
+Bad Risk = 0.78
+
+The application can display:
+
+Bad Risk Probability: 78%
+17. Risk Categories
+
+The application can provide a simple interpretation.
+
+Example:
+
+Probability < 30%
+→ Low Risk
+
+30% – 60%
+→ Moderate Risk
+
+> 60%
+→ High Risk
+
+These thresholds are illustrative and should not be treated as official financial decision thresholds.
+
+In a real banking system, risk thresholds would need to be established using validated business, regulatory, and financial criteria.
+
+18. Explainable Prediction
+
+The application can also display the most influential factors.
+
+For example:
+
+Prediction: Bad Risk
+
+Important Factors:
+
+1. Poor Credit History
+2. Long Loan Duration
+3. High Credit Amount
+4. Low Savings
+
+This makes the application more useful than simply returning:
+
+Bad Risk
