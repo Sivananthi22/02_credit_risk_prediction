@@ -501,3 +501,127 @@ Recall
 Precision
 False Negative rate
 Data drift
+
+30. Data Drift
+
+Data drift occurs when the distribution of incoming data changes over time.
+
+Example:
+
+During training:
+
+Average Loan Amount = 5,000
+
+After deployment:
+
+Average Loan Amount = 20,000
+
+The model may behave differently because the data it receives no longer resembles its training data.
+
+31. Model Retraining
+
+If model performance decreases significantly, the model may need to be retrained using newer data.
+
+The lifecycle becomes:
+
+Collect New Data
+      ↓
+Evaluate Model
+      ↓
+Detect Performance Changes
+      ↓
+Retrain Model
+      ↓
+Evaluate New Model
+      ↓
+Deploy Updated Model
+32. Complete ML Lifecycle
+
+The complete project can now be represented as:
+
+Business Problem
+       ↓
+Data Collection
+       ↓
+Data Understanding
+       ↓
+EDA
+       ↓
+Preprocessing
+       ↓
+Model Building
+       ↓
+Model Evaluation
+       ↓
+Model Explainability
+       ↓
+Model Deployment
+       ↓
+Monitoring
+       ↓
+Retraining
+33. Expected Final Product
+
+The final project will provide an end-to-end credit risk prediction system.
+
+A user will:
+
+Enter Customer Information
+          ↓
+       Submit
+          ↓
+   Machine Learning Model
+          ↓
+  Risk Probability
+          ↓
+Good / Bad Risk Prediction
+          ↓
+   Explanation of Result
+34. Project Skills Demonstrated
+
+This project demonstrates knowledge of:
+
+Data Science
+Data Understanding
+EDA
+Statistical Analysis
+Feature Analysis
+Machine Learning
+Classification
+Model Training
+Model Evaluation
+Hyperparameter Tuning
+Explainable AI
+Feature Importance
+SHAP
+Software Development
+Python
+Modular Code
+Model Serialization
+Deployment
+Streamlit
+Application Development
+MLOps Concepts
+Model Versioning
+Monitoring
+Data Drift
+Retraining
+35. Conclusion
+
+Model deployment transforms the credit risk prediction model from an experimental notebook into a usable application.
+
+The final system will allow users to enter customer information and receive a predicted credit risk together with a probability and explanation.
+
+The project therefore progresses from:
+
+Raw Data
+
+to:
+
+Machine Learning Model
+
+and finally to:
+
+Real-World Application
+
+This makes the project an end-to-end AI & Data Science portfolio project rather than simply a machine learning notebook.
