@@ -118,3 +118,85 @@ Job
 Number of Dependents
 Telephone
 Foreign Worker Status
+
+For numerical variables:
+
+Age
+[ 35 ]
+Credit Amount
+[ 5000 ]
+Buttons
+[ Predict Credit Risk ]
+9. Prediction Workflow
+
+When the user clicks the prediction button:
+
+User Input
+    ↓
+Create DataFrame
+    ↓
+Apply Encoders
+    ↓
+Apply Scaler
+    ↓
+Pass Data to Model
+    ↓
+Generate Prediction
+    ↓
+Generate Probability
+    ↓
+Display Result
+10. Why the Preprocessing Pipeline Must Be Reused
+
+The model was trained using transformed data.
+
+For example:
+
+Categorical Data
+      ↓
+Encoding
+      ↓
+Numerical Data
+      ↓
+Scaling
+      ↓
+Model
+
+The same transformations must be applied to new user data.
+
+Otherwise, the model may receive data in a format different from what it learned during training.
+
+11. Example
+
+Suppose during training:
+
+Housing = Own
+
+was encoded as:
+
+Own → 1
+
+The application must apply the same encoding when a user selects:
+
+Housing = Own
+
+It must not create a different mapping.
+
+12. Saving the Model
+
+After selecting the final model, it should be saved to disk.
+
+Possible file:
+
+models/credit_risk_model.pkl
+
+Python's joblib library can be used.
+
+Example:
+
+import joblib
+
+joblib.dump(
+    model,
+    '../models/credit_risk_model.pkl'
+)
