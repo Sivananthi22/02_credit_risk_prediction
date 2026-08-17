@@ -294,3 +294,123 @@ Important Factors:
 This makes the application more useful than simply returning:
 
 Bad Risk
+
+tructure can be extended to:
+
+02_credit-risk-prediction/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── notebooks/
+│   ├── 01_data_understanding.ipynb
+│   ├── 02_eda.ipynb
+│   ├── 03_preprocessing.ipynb
+│   ├── 04_model_building.ipynb
+│   └── 05_model_explainability.ipynb
+│
+├── src/
+│   ├── preprocessing.py
+│   ├── predict.py
+│   └── utils.py
+│
+├── models/
+│   ├── credit_risk_model.pkl
+│   ├── scaler.pkl
+│   └── encoders.pkl
+│
+├── reports/
+│
+├── app/
+│   └── streamlit_app.py
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+20. Application Entry Point
+
+The Streamlit application will be started using:
+
+streamlit run app/streamlit_app.py
+
+This launches the application in a web browser.
+
+21. Basic Application Flow
+
+The application will contain:
+
+------------------------------------
+       Credit Risk Prediction
+------------------------------------
+
+Customer Information
+
+Age:              [ 35 ]
+
+Credit Amount:    [ 5000 ]
+
+Duration:         [ 24 ]
+
+Credit History:   [ Select ]
+
+Housing:          [ Select ]
+
+Savings Account:  [ Select ]
+
+        [ Predict Risk ]
+
+------------------------------------
+
+Prediction:
+BAD CREDIT RISK
+
+Probability:
+78%
+
+Main Factors:
+- Poor Credit History
+- Long Duration
+- High Credit Amount
+------------------------------------
+22. Model Versioning
+
+A deployed model should be identifiable by version.
+
+Example:
+
+credit_risk_model_v1.pkl
+
+Later:
+
+credit_risk_model_v2.pkl
+
+This becomes important when models are updated.
+
+23. Model Security
+
+The application should avoid exposing:
+
+Training data
+Internal model files
+Sensitive customer information
+API keys
+Credentials
+
+Sensitive information should never be committed to GitHub.
+
+24. .gitignore
+
+The project should contain a .gitignore file.
+
+It can prevent unnecessary or sensitive files from being committed.
+
+Examples:
+
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+.env
+*.pyc
+
+Large datasets may also be excluded depending on their licensing and repository size.
