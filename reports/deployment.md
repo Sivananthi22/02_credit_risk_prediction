@@ -35,3 +35,86 @@ Deployment
  ↓
 Real-World Predictions
 
+3. Why Deployment is Important
+
+A model inside a Jupyter Notebook is useful for experimentation, but it is not convenient for non-technical users.
+
+For example, a bank employee should not need to open Python and run:
+
+model.predict(customer_data)
+
+Instead, they should be able to use a simple application.
+
+For example:
+
+Customer Information
+        ↓
+[ Predict Credit Risk ]
+        ↓
+Bad Credit Risk
+Probability: 78%
+4. Deployment Technology
+
+The planned application will use:
+
+Streamlit
+
+Streamlit is a Python framework for creating interactive data science and machine learning applications.
+
+It allows us to build a web interface without requiring extensive frontend development.
+
+5. Why Streamlit?
+
+Streamlit is suitable for this project because it:
+
+Works directly with Python
+Is easy to develop
+Integrates well with Machine Learning models
+Supports interactive inputs
+Is suitable for demonstrations and prototypes
+Can be deployed online
+6. Deployment Architecture
+
+The application will follow this architecture:
+
+                 User
+                  ↓
+          Streamlit Application
+                  ↓
+       Customer Input Information
+                  ↓
+        Data Preprocessing Pipeline
+                  ↓
+          Trained ML Model
+                  ↓
+          Risk Probability
+                  ↓
+       Good / Bad Risk Prediction
+                  ↓
+         Explainable Prediction
+7. User Input
+
+The application will collect information about the customer.
+
+Potential inputs include:
+
+Checking Account Status
+Loan Duration
+Credit History
+Loan Purpose
+Credit Amount
+Savings Account
+Employment Duration
+Installment Rate
+Personal Status
+Other Debtors
+Present Residence
+Property
+Age
+Other Installment Plans
+Housing
+Number of Credits
+Job
+Number of Dependents
+Telephone
+Foreign Worker Status
