@@ -414,3 +414,90 @@ __pycache__/
 *.pyc
 
 Large datasets may also be excluded depending on their licensing and repository size.
+
+25. Deployment Options
+
+The Streamlit application can eventually be deployed using a cloud hosting platform.
+
+Possible options include:
+
+Streamlit Community Cloud
+Docker
+Cloud platforms
+Virtual machines
+
+For this student portfolio project, a simple Streamlit deployment is sufficient.
+
+26. Local Deployment
+
+The application can first be tested locally.
+
+Install dependencies:
+
+pip install streamlit
+
+Then run:
+
+streamlit run app/streamlit_app.py
+
+The application will open in a browser.
+
+27. Testing the Application
+
+Before deployment, test different scenarios.
+
+Test Case 1
+
+A customer with strong credit history.
+
+Expected:
+
+Lower Risk
+Test Case 2
+
+A customer with poor credit history and long loan duration.
+
+Expected:
+
+Higher Risk
+Test Case 3
+
+Boundary values.
+
+Test:
+
+Very small loan
+Very large loan
+Short duration
+Long duration
+Different housing types
+Different savings levels
+28. Deployment Testing Checklist
+
+Before deployment:
+
+Verify all input fields
+Verify categorical mappings
+Verify numerical transformations
+Verify feature order
+Test model predictions
+Test probability output
+Test SHAP explanations
+Handle invalid inputs
+Test missing values
+Test application startup
+29. Model Monitoring
+
+Deployment is not the end of the ML lifecycle.
+
+After deployment, model performance should be monitored.
+
+Important metrics include:
+
+Prediction distribution
+Input data distribution
+Model accuracy
+Recall
+Precision
+False Negative rate
+Data drift
