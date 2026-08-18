@@ -148,3 +148,117 @@ Mortgage
 the application may not know how to encode it.
 
 This should be detected before it causes prediction failures.
+
+9. Data Drift
+
+Data drift occurs when the statistical distribution of incoming data changes over time.
+
+Example:
+
+Training Data
+Average Age = 35
+Production Data
+Average Age = 48
+
+This may indicate that the customer population has changed.
+
+10. Concept Drift
+
+Concept drift is different from data drift.
+
+Concept drift occurs when the relationship between features and the target changes.
+
+For example:
+
+During training:
+
+Long Loan Duration
+        ↓
+Higher Risk
+
+Later, market conditions change and the relationship becomes weaker.
+
+The model may therefore become less accurate even if the feature distributions remain similar.
+
+11. Data Drift vs Concept Drift
+Type	Meaning
+Data Drift	Input data distribution changes
+Concept Drift	Relationship between inputs and target changes
+
+Both can affect model performance.
+
+12. Model Performance Monitoring
+
+When actual customer outcomes become available, model performance can be measured.
+
+Important metrics include:
+
+Accuracy
+Precision
+Recall
+F1 Score
+ROC-AUC
+
+For this project, special attention should be given to:
+
+Recall for Bad Credit Risk
+
+because failing to identify a risky borrower can cause financial losses.
+
+13. Prediction Monitoring
+
+Even before actual outcomes are available, prediction distributions can be monitored.
+
+For example:
+
+Normal
+Good Risk = 70%
+Bad Risk = 30%
+
+Suddenly:
+
+Good Risk = 95%
+Bad Risk = 5%
+
+This unexpected change may indicate:
+
+Data drift
+Preprocessing problems
+Model problems
+Changes in customer population
+14. Prediction Probability Monitoring
+
+The model may output probabilities such as:
+
+Good Risk = 0.30
+Bad Risk = 0.70
+
+Monitoring probability distributions can reveal changes in model confidence.
+
+For example:
+
+Average Bad-Risk Probability
+Training = 0.30
+
+
+Production = 0.75
+
+This should be investigated.
+
+15. Logging
+
+Logging records important events during application execution.
+
+For example:
+
+2026-08-18 10:15:23
+Prediction completed
+
+Logs can record:
+
+Prediction timestamp
+Model version
+Processing status
+Errors
+Response time
+Prediction result
