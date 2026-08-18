@@ -262,3 +262,100 @@ Processing status
 Errors
 Response time
 Prediction result
+
+16. Why Logging is Important
+
+Logs help developers:
+
+Debug problems
+Investigate failures
+Understand system behavior
+Track model versions
+Monitor application health
+17. What Should NOT Be Logged?
+
+Sensitive customer information should not be unnecessarily stored in logs.
+
+Avoid logging sensitive personal or financial information unless there is a legitimate, protected operational requirement.
+
+Instead of:
+
+Customer:
+Name = John Smith
+Credit Amount = 15000
+
+prefer:
+
+Prediction completed
+Model Version = v1
+Prediction = Bad Risk
+
+where appropriate.
+
+18. Model Versioning
+
+Every production model should have a version.
+
+For example:
+
+credit_risk_model_v1.pkl
+
+Later:
+
+credit_risk_model_v2.pkl
+
+This makes it possible to identify which model generated a prediction.
+
+19. Why Model Versioning Matters
+
+Suppose a prediction was generated on:
+
+August 18
+
+and the model was updated on:
+
+August 20
+
+Without versioning, it may be difficult to determine which model generated the original prediction.
+
+Versioning provides traceability.
+
+20. Model Registry Concept
+
+In larger ML systems, models can be managed through a Model Registry.
+
+A registry can store:
+
+Model version
+Training date
+Evaluation metrics
+Model status
+Deployment status
+
+Example:
+
+Version	Accuracy	Recall	Status
+v1	0.78	0.72	Archived
+v2	0.81	0.78	Production
+v3	0.83	0.80	Testing
+21. Model Retraining
+
+When model performance decreases significantly, retraining may be necessary.
+
+The process is:
+
+New Data
+ ↓
+Data Validation
+ ↓
+EDA
+ ↓
+Preprocessing
+ ↓
+Model Training
+ ↓
+Evaluation
+ ↓
+Compare With Current Model
+ ↓
+Deploy If Better
