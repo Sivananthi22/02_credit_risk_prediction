@@ -359,3 +359,210 @@ Evaluation
 Compare With Current Model
  ↓
 Deploy If Better
+
+22. When Should a Model Be Retrained?
+
+Retraining can be triggered by:
+
+Performance Degradation
+
+For example:
+
+Recall falls from 78% to 65%
+Data Drift
+
+Significant changes in input distributions.
+
+Concept Drift
+
+Relationship between features and risk changes.
+
+Scheduled Retraining
+
+For example:
+
+Retrain every 3 months
+
+The exact schedule depends on the business environment.
+
+23. Retraining Strategy
+
+A safe retraining process should not immediately replace the production model.
+
+Instead:
+
+Current Production Model
+          ↓
+Collect New Data
+          ↓
+Train Candidate Model
+          ↓
+Evaluate Candidate
+          ↓
+Compare
+     ↙          ↘
+Better          Worse
+ ↓                ↓
+Deploy          Keep Current
+24. Model Validation Before Deployment
+
+A new model should pass validation checks before being deployed.
+
+Checks may include:
+
+Accuracy
+Recall
+Precision
+F1
+ROC-AUC
+Data quality
+Fairness
+Stability
+25. Model Rollback
+
+Sometimes a newly deployed model may perform poorly.
+
+Therefore, the previous model should be retained.
+
+Example:
+
+Production:
+v2
+
+
+New:
+v3
+
+If v3 fails:
+
+Rollback
+v3 → v2
+
+This reduces operational risk.
+
+26. Monitoring Dashboard
+
+A production ML system can have a dashboard displaying:
+
+-----------------------------------------
+     Credit Risk Model Monitoring
+-----------------------------------------
+
+
+Model Version: v2
+
+
+Predictions:
+Good Risk     71%
+Bad Risk      29%
+
+
+Recall:
+78%
+
+
+Precision:
+74%
+
+
+F1 Score:
+76%
+
+
+Data Drift:
+Low
+
+
+Model Status:
+Healthy
+-----------------------------------------
+
+This allows data scientists and engineers to quickly identify problems.
+
+27. Alerting
+
+Automated alerts can be configured when important thresholds are exceeded.
+
+Example:
+
+IF recall < 70%
+    → Alert
+
+or:
+
+IF missing_value_rate > 5%
+    → Alert
+
+or:
+
+IF data_drift_score > threshold
+    → Alert
+28. Health Checks
+
+The deployed application should also have basic health checks.
+
+For example:
+
+Application Running?
+        ↓
+Model Loaded?
+        ↓
+Preprocessing Available?
+        ↓
+Prediction Working?
+
+If one component fails, the problem should be detected quickly.
+
+29. Monitoring Architecture
+
+The overall architecture can be represented as:
+
+                   User
+                     ↓
+              Streamlit App
+                     ↓
+              ML Prediction
+                     ↓
+        ┌────────────┴────────────┐
+        ↓                         ↓
+   Prediction                 Application
+    Logging                    Logging
+        ↓                         ↓
+        └────────────┬────────────┘
+                     ↓
+               Monitoring
+                     ↓
+             Drift Detection
+                     ↓
+             Model Evaluation
+                     ↓
+              Retraining
+                     ↓
+              New Model
+30. MLOps Lifecycle
+
+The complete lifecycle is:
+
+Plan
+ ↓
+Collect Data
+ ↓
+Prepare Data
+ ↓
+Train Model
+ ↓
+Evaluate Model
+ ↓
+Deploy
+ ↓
+Monitor
+ ↓
+Detect Drift
+ ↓
+Retrain
+ ↓
+Evaluate New Model
+ ↓
+Deploy Updated Model
+
+This cycle continues throughout the model's lifetime.
