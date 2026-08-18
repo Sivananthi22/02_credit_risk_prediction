@@ -85,3 +85,66 @@ Monitor accuracy, recall, precision, etc., when actual outcomes become available
 4. System Performance
 
 Monitor application health and response time.
+
+5. Data Monitoring
+
+Data monitoring checks whether incoming data behaves as expected.
+
+Important properties include:
+
+Data types
+Missing values
+Value ranges
+Category distributions
+Statistical distributions
+6. Missing Value Monitoring
+
+Suppose the training data contained:
+
+Missing Values = 0%
+
+but the deployed system starts receiving:
+
+Missing Values = 15%
+
+This could indicate a problem with the data pipeline.
+
+Therefore, missing-value rates should be monitored.
+
+7. Data Range Monitoring
+
+Some features should have reasonable ranges.
+
+For example:
+
+Age
+
+should not normally contain:
+
+Age = -10
+
+Similarly:
+
+Credit Amount
+
+should not contain invalid negative values unless specifically allowed by the business definition.
+
+8. Categorical Value Monitoring
+
+Categorical variables may contain unexpected categories.
+
+For example:
+
+Housing:
+Own
+Rent
+Free
+
+If a new category appears:
+
+Housing:
+Mortgage
+
+the application may not know how to encode it.
+
+This should be detected before it causes prediction failures.
