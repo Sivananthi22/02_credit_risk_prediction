@@ -388,3 +388,83 @@ Prediction
 Probability
  ↓
 Explanation
+
+21. tests/
+
+The tests directory contains automated tests.
+
+Example:
+
+tests/
+└── test_prediction.py
+
+Testing helps ensure that the project continues working correctly after changes.
+
+22. Why Testing Matters
+
+Suppose we modify the preprocessing code.
+
+A previously working prediction function might stop working.
+
+Automated tests can detect this immediately.
+
+Testing therefore improves:
+
+Reliability
+Maintainability
+Confidence
+23. requirements.txt
+
+This file contains the Python dependencies required to run the project.
+
+Example:
+
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+xgboost
+shap
+streamlit
+joblib
+
+The exact versions can later be pinned.
+
+For example:
+
+pandas==2.x.x
+24. Why Dependency Management Matters
+
+Another developer should be able to clone the repository and install the required packages.
+
+Typical process:
+
+pip install -r requirements.txt
+
+This improves reproducibility.
+
+25. .gitignore
+
+The .gitignore file specifies files that Git should not track.
+
+Example:
+
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+.env
+*.pyc
+26. Why .gitignore Matters
+
+Some files should not be uploaded to GitHub.
+
+Examples:
+
+Virtual environments
+Passwords
+API keys
+Temporary files
+Python cache files
+
+This protects the repository and keeps it clean.
