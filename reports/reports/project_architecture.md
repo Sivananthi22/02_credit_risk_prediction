@@ -468,3 +468,104 @@ Temporary files
 Python cache files
 
 This protects the repository and keeps it clean.
+
+27. README.md
+
+The README is the main entry point of the GitHub repository.
+
+It should explain:
+
+Project objective
+Dataset
+Architecture
+Technologies
+Results
+How to run the project
+Screenshots
+Future improvements
+
+A good README allows someone to understand the project without reading every notebook.
+
+28. GitHub Repository Structure
+
+The final GitHub repository should allow a visitor to understand the project quickly.
+
+The ideal flow is:
+
+README
+   ↓
+Project Architecture
+   ↓
+Data
+   ↓
+EDA
+   ↓
+Preprocessing
+   ↓
+Models
+   ↓
+Evaluation
+   ↓
+Explainability
+   ↓
+Application
+29. Data Flow
+
+The project's data flow is:
+
+german.data
+     ↓
+Data Understanding
+     ↓
+german_credit.csv
+     ↓
+EDA
+     ↓
+Preprocessing
+     ↓
+X_train / X_test
+     ↓
+Model Training
+     ↓
+Trained Model
+     ↓
+Streamlit Application
+     ↓
+New Customer
+     ↓
+Prediction
+30. Separation of Responsibilities
+
+A professional project should avoid putting everything in one file.
+
+Each component should have a clear responsibility.
+
+Component	Responsibility
+data/	Store datasets
+notebooks/	Analysis and experimentation
+src/	Reusable production code
+models/	Trained models
+reports/	Documentation
+app/	User interface
+tests/	Automated testing
+31. Development vs Production
+
+During development:
+
+Jupyter Notebook
+       ↓
+Experiment
+       ↓
+Evaluate
+
+For production:
+
+Reusable Python Code
+       ↓
+Saved Model
+       ↓
+Application
+       ↓
+Monitoring
+
+The project should gradually transition from notebooks to reusable source code.
