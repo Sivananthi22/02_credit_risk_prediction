@@ -296,3 +296,95 @@ def predict_credit_risk(customer_data):
     ...
 
 The Streamlit application can then call this function.
+
+15. utils.py
+
+Utility functions that are used throughout the project can be placed here.
+
+Examples:
+
+File loading
+Configuration
+Logging
+Helper functions
+16. models/
+
+The models directory contains trained model artifacts.
+
+Example:
+
+models/
+├── credit_risk_model.pkl
+├── scaler.pkl
+└── encoders.pkl
+17. Model Serialization
+
+A trained model does not need to be retrained every time the application starts.
+
+Instead, it can be saved to a file.
+
+For example:
+
+import joblib
+
+
+joblib.dump(
+    model,
+    "models/credit_risk_model.pkl"
+)
+
+Later:
+
+model = joblib.load(
+    "models/credit_risk_model.pkl"
+)
+
+This process is called model serialization.
+
+18. reports/
+
+The reports directory contains project documentation.
+
+Current reports include:
+
+reports/
+│
+├── project_fundamentals.md
+├── data_understanding.md
+├── eda.md
+├── preprocessing.md
+├── model_building.md
+├── model_evaluation.md
+├── model_explainability.md
+├── deployment.md
+└── monitoring_and_maintenance.md
+
+These documents explain both the technical and theoretical aspects of the project.
+
+19. app/
+
+The app directory contains the user-facing application.
+
+Example:
+
+app/
+└── streamlit_app.py
+
+The application will allow users to enter customer information and obtain a credit risk prediction.
+
+20. Streamlit Application Flow
+User
+ ↓
+Enter Customer Information
+ ↓
+Streamlit Interface
+ ↓
+Preprocessing
+ ↓
+Trained Model
+ ↓
+Prediction
+ ↓
+Probability
+ ↓
+Explanation
