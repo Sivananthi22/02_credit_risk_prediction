@@ -167,3 +167,73 @@ y_train.csv
 y_test.csv
 
 These datasets are ready for analysis or model training.
+
+
+8. Why Separate Raw and Processed Data?
+
+Keeping raw and processed data separate is important.
+
+The workflow becomes:
+
+Raw Data
+   ↓
+Processing
+   ↓
+Processed Data
+
+If something goes wrong during preprocessing, the original dataset remains unchanged.
+
+This improves:
+
+Reproducibility
+Debugging
+Data management
+9. notebooks/
+
+The notebooks directory contains experimental and analytical work.
+
+The notebooks are organized according to the Machine Learning lifecycle.
+
+01_data_understanding.ipynb
+
+Purpose:
+
+Load dataset
+Assign column names
+Inspect shape
+Check data types
+Check missing values
+Analyze target
+02_eda.ipynb
+
+Purpose:
+
+Explore distributions
+Analyze relationships
+Detect outliers
+Generate visualizations
+Identify business insights
+03_preprocessing.ipynb
+
+Purpose:
+
+Separate X and y
+Encode categorical variables
+Split training and testing data
+Scale numerical variables
+Prepare model-ready data
+04_model_building.ipynb
+
+Purpose:
+
+Train classification models
+Compare models
+Generate predictions
+Evaluate performance
+05_model_explainability.ipynb
+
+Purpose:
+
+Analyze feature importance
+Generate SHAP explanations
+Explain individual predictions
