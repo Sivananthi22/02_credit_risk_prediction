@@ -237,3 +237,62 @@ Purpose:
 Analyze feature importance
 Generate SHAP explanations
 Explain individual predictions
+
+10. Why Use Multiple Notebooks?
+
+Separating notebooks prevents one large notebook from becoming difficult to maintain.
+
+Instead:
+
+Notebook 1
+    ↓
+Notebook 2
+    ↓
+Notebook 3
+    ↓
+Notebook 4
+    ↓
+Notebook 5
+
+Each notebook has a specific responsibility.
+
+11. src/
+
+The src directory contains reusable Python code.
+
+This is an important step toward moving from an experimental project to a production-style project.
+
+12. preprocessing.py
+
+This file can contain reusable preprocessing functions.
+
+For example:
+
+def preprocess_data(data):
+    ...
+
+Instead of copying preprocessing code into multiple notebooks, the same function can be reused.
+
+13. train.py
+
+This file can contain model training logic.
+
+Example responsibility:
+
+Load Data
+   ↓
+Train Model
+   ↓
+Evaluate Model
+   ↓
+Save Model
+14. predict.py
+
+This file can contain prediction logic.
+
+For example:
+
+def predict_credit_risk(customer_data):
+    ...
+
+The Streamlit application can then call this function.
