@@ -141,3 +141,106 @@ A possible categorization:
 > 36 months → Long
 
 The exact thresholds should be justified using EDA and domain knowledge.
+
+
+8. Why Create Duration Categories?
+
+A numerical model sees:
+
+12
+24
+36
+48
+60
+
+A categorical feature allows us to explicitly represent:
+
+Short
+Medium
+Long
+
+This can make certain nonlinear relationships easier for some models to learn.
+
+9. Credit Amount Categories
+
+The original:
+
+credit_amount
+
+can potentially be transformed into categories.
+
+For example:
+
+Low
+Medium
+High
+
+However, categories should not automatically replace the original numerical feature.
+
+We can initially retain:
+
+credit_amount
+
+and create an additional feature.
+
+10. Age Groups
+
+Age is currently numerical.
+
+We could create:
+
+age_group
+
+For example:
+
+Young
+Adult
+Middle-aged
+Older
+
+Possible implementation:
+
+df['age_group'] = pd.cut(
+    df['age'],
+    bins=[0, 25, 35, 50, 100],
+    labels=[
+        'young',
+        'adult',
+        'middle_aged',
+        'older'
+    ]
+)
+
+The exact bins should be evaluated carefully.
+
+11. Why Age Groups Can Help
+
+The relationship between age and credit risk may not be linear.
+
+For example:
+
+Age
+ ↓
+Risk
+
+may behave differently across age ranges.
+
+Age grouping can expose possible nonlinear patterns.
+
+However, tree-based models can already learn many nonlinear relationships, so this feature should be validated experimentally.
+
+12. Credit History Grouping
+
+Credit history is likely to be one of the most important variables.
+
+It represents previous financial behavior.
+
+We can investigate whether categories can be grouped into broader concepts such as:
+
+Good History
+Poor History
+No/Weak History
+
+This can simplify interpretation.
+
+However, we should preserve the original information unless EDA shows that grouping is beneficial.
