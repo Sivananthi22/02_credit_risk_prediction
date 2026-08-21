@@ -423,3 +423,121 @@ Financial Stability
 Tree-based algorithms such as Random Forest and XGBoost can naturally learn many interactions.
 
 Therefore, manually creating interaction features is optional and should be validated.
+
+22. Feature Transformation
+
+Sometimes a variable's distribution can be transformed.
+
+For example:
+
+credit_amount
+
+was observed during EDA to be right-skewed.
+
+A logarithmic transformation can reduce skewness.
+
+Example:
+
+df['log_credit_amount'] = np.log1p(
+    df['credit_amount']
+)
+23. Why log1p()?
+
+log1p(x) calculates:
+
+log(1 + x)
+
+It is often safer than directly applying:
+
+np.log(x)
+
+when zero values may exist.
+
+24. Should We Always Transform Skewed Features?
+
+No.
+
+Transformation should depend on the model.
+
+For example:
+
+Logistic Regression
+
+May benefit from transformed numerical variables when distributions are highly skewed.
+
+Decision Tree
+
+Usually does not require such transformations.
+
+Random Forest
+
+Usually does not require them.
+
+XGBoost
+
+Generally handles skewed numerical features well.
+
+Therefore, transformations should be evaluated experimentally.
+
+25. Feature Selection
+
+Feature engineering is also connected to feature selection.
+
+Feature selection means identifying the most useful variables and removing unnecessary ones.
+
+Possible techniques include:
+
+Correlation analysis
+Mutual information
+Model-based importance
+Recursive Feature Elimination
+SHAP analysis
+26. Why Feature Selection Matters
+
+Too many irrelevant variables can:
+
+Add noise
+Increase model complexity
+Increase training time
+Increase overfitting risk
+
+A smaller set of meaningful features can sometimes produce a simpler and more interpretable model.
+
+27. Avoiding Data Leakage in Feature Engineering
+
+This is extremely important.
+
+Feature engineering must not use information that would be unavailable at prediction time.
+
+For example, suppose we create:
+
+customer_defaulted
+
+using information that only became known after the loan was issued.
+
+That feature cannot be used to predict whether the customer will default before the loan is approved.
+
+This would be:
+
+Data Leakage
+28. Train-Test Considerations
+
+Feature engineering should respect the train-test boundary.
+
+For transformations that learn information from the data, such as:
+
+Scaling
+Imputation
+Statistical encoding
+
+the transformation should be fitted on training data only.
+
+Then:
+
+Training Data
+      ↓
+Fit Transformation
+      ↓
+Training + Testing
+
+The testing set should not influence the learned transformation.
