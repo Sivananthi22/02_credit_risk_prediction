@@ -659,3 +659,101 @@ For this project, we can experiment with:
 8. log_credit_amount
 
 These should be treated as experimental features, not automatically included in the final model.
+
+36. Feature Engineering Workflow for This Project
+EDA Findings
+      ↓
+Identify Potential Relationships
+      ↓
+Create Candidate Features
+      ↓
+Check Business Meaning
+      ↓
+Check Leakage
+      ↓
+Train Model
+      ↓
+Evaluate
+      ↓
+Compare With Baseline
+      ↓
+Keep Useful Features
+      ↓
+Remove Unhelpful Features
+37. Recommended Implementation Strategy
+
+We should not immediately create all these features.
+
+Instead, we will first establish a baseline model using the original features.
+
+Then we can introduce engineered features one group at a time.
+
+This allows us to answer:
+
+Did feature engineering actually improve the model?
+
+38. Final Feature Set
+
+The final feature set should be selected based on:
+
+Predictive performance
+Stability
+Business relevance
+Interpretability
+Leakage prevention
+Fairness considerations
+
+The goal is not:
+
+Create the maximum number of features.
+
+The goal is:
+
+Create the most useful features.
+
+39. Complete Project Pipeline
+
+The project now follows:
+
+Business Problem
+       ↓
+Data Collection
+       ↓
+Data Understanding
+       ↓
+EDA
+       ↓
+Feature Engineering
+       ↓
+Data Preprocessing
+       ↓
+Model Building
+       ↓
+Model Evaluation
+       ↓
+Explainability
+       ↓
+Deployment
+       ↓
+Monitoring
+40. Conclusion
+
+Feature engineering is an important part of building a strong Machine Learning system.
+
+For this German Credit Risk Prediction project, feature engineering will focus on representing concepts such as:
+
+Loan burden
+Financial stability
+Employment stability
+Existing credit obligations
+Customer age groups
+
+However, every engineered feature must be evaluated carefully.
+
+A feature should only be retained if it:
+
+Makes business sense
+Is available at prediction time
+Does not introduce leakage
+Provides useful predictive information
+Does not unnecessarily increase model complexity
