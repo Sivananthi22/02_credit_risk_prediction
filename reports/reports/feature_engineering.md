@@ -42,3 +42,42 @@ Reduce unnecessary complexity
 Improve model interpretability
 Help models learn domain-specific patterns
 
+3. Feature Engineering vs Data Preprocessing
+
+These two concepts are related but different.
+
+Data Preprocessing
+
+Prepares existing data for Machine Learning.
+
+Examples:
+
+Encoding
+Scaling
+Missing-value handling
+Train-test splitting
+Feature Engineering
+
+Creates or transforms features to make them more informative.
+
+Examples:
+
+Creating loan categories
+Creating income-to-loan ratios
+Grouping age
+Creating financial stability indicators
+4. Feature Engineering in Credit Risk
+
+Credit risk depends on several aspects of a customer's financial situation.
+
+Important concepts include:
+
+Ability to repay
+Financial stability
+Previous credit behavior
+Loan size
+Loan duration
+Existing financial obligations
+
+Feature engineering can help represent these concepts more explicitly.
+
