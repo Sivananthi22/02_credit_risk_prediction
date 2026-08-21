@@ -244,3 +244,182 @@ No/Weak History
 This can simplify interpretation.
 
 However, we should preserve the original information unless EDA shows that grouping is beneficial.
+
+13. Financial Stability Features
+
+Financial stability is an important concept in credit risk.
+
+Possible indicators include:
+
+Checking account status
+Savings account status
+Employment duration
+Housing status
+
+These can potentially be combined into a broader concept such as:
+
+financial_stability_score
+14. Example Financial Stability Score
+
+A simple experimental score could assign points for indicators such as:
+
+Stable checking account → +1
+Strong savings → +1
+Long employment → +1
+Own housing → +1
+
+Then:
+
+0 → Low Stability
+1–2 → Moderate Stability
+3–4 → High Stability
+
+This is only an example.
+
+In a real financial system, such scoring rules would need strong domain validation.
+
+15. Loan Burden Features
+
+Loan duration and credit amount together may provide more information than either feature independently.
+
+For example:
+
+credit_amount
++
+duration
+
+can represent the size and length of the financial obligation.
+
+One possible derived feature is:
+
+credit_amount_per_month
+
+For example:
+
+df['credit_amount_per_month'] = (
+    df['credit_amount'] / df['duration']
+)
+
+This is a simplified indicator of monthly loan burden.
+
+It should not be interpreted as the actual monthly repayment because interest and repayment structure are not represented.
+
+16. Why Interaction Features Matter
+
+Consider two customers:
+
+Customer A
+Credit Amount = 5000
+Duration = 12
+Customer B
+Credit Amount = 5000
+Duration = 60
+
+Both have the same loan amount.
+
+But their repayment periods are very different.
+
+Feature engineering can help the model capture relationships between:
+
+Loan Amount
++
+Loan Duration
+17. Existing Credit Burden
+
+The dataset contains:
+
+number_credits
+
+This represents the number of existing credits.
+
+A customer with multiple existing credits may have a different risk profile from a customer with no previous credits.
+
+Potential derived feature:
+
+multiple_existing_credits
+
+For example:
+
+df['multiple_existing_credits'] = (
+    df['number_credits'] > 1
+).astype(int)
+18. Dependents
+
+The dataset contains:
+
+people_liable
+
+This represents the number of people financially dependent on the customer.
+
+A potential feature could be:
+
+has_dependents
+
+Example:
+
+df['has_dependents'] = (
+    df['people_liable'] > 1
+).astype(int)
+
+Again, the threshold should be validated rather than assumed.
+
+19. Employment Stability
+
+Employment duration can potentially be transformed into a stability indicator.
+
+For example:
+
+short employment
+medium employment
+long employment
+
+This may help the model capture the difference between:
+
+Recently employed
+
+and:
+
+Long-term employment
+20. Savings and Checking Account Interaction
+
+A customer's checking account and savings account provide related financial information.
+
+We can investigate whether their combination provides additional predictive information.
+
+For example:
+
+Strong Savings + Good Checking
+        ↓
+Potentially Stronger Financial Position
+
+while:
+
+Low Savings + Poor Checking
+        ↓
+Potentially Higher Financial Risk
+
+This should be tested empirically.
+
+21. Feature Interaction
+
+Feature interaction occurs when the effect of one variable depends on another variable.
+
+Example:
+
+Credit Amount
+      +
+Duration
+      ↓
+Loan Burden
+
+Another example:
+
+Employment Stability
+      +
+Credit History
+      ↓
+Financial Stability
+
+Tree-based algorithms such as Random Forest and XGBoost can naturally learn many interactions.
+
+Therefore, manually creating interaction features is optional and should be validated.
