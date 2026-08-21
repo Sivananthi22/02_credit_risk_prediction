@@ -81,3 +81,63 @@ Existing financial obligations
 
 Feature engineering can help represent these concepts more explicitly.
 
+5. Existing Features
+
+The German Credit dataset contains features such as:
+
+Age
+Credit Amount
+Duration
+Credit History
+Checking Account
+Savings Account
+Employment Duration
+Housing
+Number of Credits
+
+These are already useful predictors.
+
+However, relationships between them may contain additional information.
+
+6. Feature Engineering Strategy
+
+Feature engineering should be based on:
+
+Domain knowledge
+EDA findings
+Model behavior
+Business logic
+
+It should not simply involve creating as many features as possible.
+
+Too many unnecessary features can:
+
+Increase complexity
+Introduce noise
+Increase overfitting
+Reduce interpretability
+7. Loan Duration Categories
+
+The original feature:
+
+duration
+
+contains the number of months.
+
+We can create:
+
+loan_duration_category
+
+For example:
+
+Short
+Medium
+Long
+
+A possible categorization:
+
+≤ 12 months → Short
+13–36 months → Medium
+> 36 months → Long
+
+The exact thresholds should be justified using EDA and domain knowledge.
