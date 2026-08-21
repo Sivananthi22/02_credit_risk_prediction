@@ -541,3 +541,121 @@ Fit Transformation
 Training + Testing
 
 The testing set should not influence the learned transformation.
+
+29. Feature Engineering Pipeline
+
+A professional pipeline can look like:
+
+Raw Data
+   ↓
+Data Validation
+   ↓
+Basic Cleaning
+   ↓
+Feature Creation
+   ↓
+Categorical Encoding
+   ↓
+Numerical Transformation
+   ↓
+Feature Selection
+   ↓
+Model Training
+30. Feature Engineering Experiments
+
+Instead of creating every possible feature, we can compare experiments.
+
+Experiment 1
+
+Original features only.
+
+Experiment 2
+
+Original features + duration categories.
+
+Experiment 3
+
+Original features + loan burden features.
+
+Experiment 4
+
+Original features + selected interaction features.
+
+Then compare:
+
+Accuracy
+Precision
+Recall
+F1
+ROC-AUC
+31. Baseline vs Engineered Features
+
+Suppose:
+
+Experiment	Recall	F1	ROC-AUC
+Original Features	0.70	0.68	0.76
+Engineered Features	0.75	0.73	0.80
+
+The engineered feature set appears more useful.
+
+However, the improvement must be validated using proper cross-validation.
+
+32. Feature Engineering and Interpretability
+
+Good feature engineering can make models easier to explain.
+
+For example:
+
+Instead of only:
+
+duration = 48
+
+we could also have:
+
+loan_duration_category = Long
+
+This may make the business interpretation more intuitive.
+
+33. Feature Engineering and Business Knowledge
+
+Machine Learning should not be treated as purely mathematical.
+
+Domain knowledge is extremely important.
+
+For credit risk, we should think about:
+
+Ability to repay
+Existing obligations
+Financial stability
+Credit history
+Loan size
+Loan duration
+
+Features should represent these concepts where possible.
+
+34. Feature Audit
+
+Before using engineered features, each feature should be reviewed.
+
+Questions:
+
+Is the feature available at prediction time?
+Does it contain leakage?
+Does it have meaningful business interpretation?
+Does it improve model performance?
+Does it create excessive complexity?
+Is it fair and appropriate?
+35. Recommended Features to Investigate
+
+For this project, we can experiment with:
+
+1. loan_duration_category
+2. age_group
+3. credit_amount_per_month
+4. multiple_existing_credits
+5. has_dependents
+6. employment_stability
+7. financial_stability_score
+8. log_credit_amount
+
+These should be treated as experimental features, not automatically included in the final model.
