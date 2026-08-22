@@ -69,3 +69,73 @@ Python Pipeline
    ↓
 Reproducible Training
 
+4. Training Data
+
+The model should be trained using:
+
+X_train
+y_train
+
+where:
+
+X_train
+
+Contains the customer features.
+
+y_train
+
+Contains the credit-risk target.
+
+0 → Good Risk
+1 → Bad Risk
+
+The test dataset must remain separate.
+
+5. Why the Test Dataset Must Remain Separate
+
+The test set should represent unseen data.
+
+Therefore, it should not be used during:
+
+Feature selection
+Hyperparameter tuning
+Model training
+
+The test set should only be used for final evaluation.
+
+Correct workflow:
+
+Training Data
+      ↓
+Model Development
+      ↓
+Cross-Validation
+      ↓
+Hyperparameter Tuning
+      ↓
+Final Model
+      ↓
+Test Data
+      ↓
+Final Evaluation
+6. Model Candidates
+
+The project will initially train four models.
+
+Model 1
+
+Logistic Regression
+
+Model 2
+
+Decision Tree
+
+Model 3
+
+Random Forest
+
+Model 4
+
+XGBoost
+
+These models provide a progression from a simple baseline to more powerful nonlinear ensemble models.
