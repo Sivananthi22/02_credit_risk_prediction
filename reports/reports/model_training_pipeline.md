@@ -676,3 +676,213 @@ if __name__ == "__main__":
     main()
 
 This creates clear separation of responsibilities.
+
+36. Experiment Tracking
+
+Every experiment should record:
+
+Model type
+Parameters
+Dataset version
+Features used
+Evaluation metrics
+Training date
+
+Example:
+
+Experiment	Model	Features	F1	ROC-AUC
+EXP-001	Logistic Regression	Original	0.68	0.76
+EXP-002	Random Forest	Original	0.72	0.80
+EXP-003	XGBoost	Engineered	0.75	0.83
+
+This makes experimentation much more organized.
+
+37. Model Training Pipeline
+
+The final training pipeline is:
+
+                 Dataset
+                    ↓
+             Data Validation
+                    ↓
+           Feature Engineering
+                    ↓
+            Train/Test Split
+                    ↓
+          Preprocessing Pipeline
+                    ↓
+       ┌────────────┼────────────┐
+       ↓            ↓            ↓
+ Logistic        Random       XGBoost
+ Regression      Forest
+       ↓            ↓            ↓
+       └────────────┼────────────┘
+                    ↓
+             Cross Validation
+                    ↓
+          Hyperparameter Tuning
+                    ↓
+             Model Evaluation
+                    ↓
+             Select Best Model
+                    ↓
+             Save Model
+38. Reproducible Training
+
+A good training pipeline should allow us to execute:
+
+python src/train.py
+
+and reproduce the training process.
+
+The goal is to avoid manually running dozens of notebook cells every time the model needs to be retrained.
+
+39. Future Automation
+
+Later, this training pipeline can be connected to:
+
+GitHub Actions
+Docker
+MLflow
+Cloud infrastructure
+
+For example:
+
+New Data
+   ↓
+Automated Training
+   ↓
+Evaluation
+   ↓
+Model Validation
+   ↓
+Deployment
+
+This becomes part of a proper MLOps workflow.
+
+40. Recommended Training Workflow for This Project
+
+For the current project, we should proceed in this order:
+
+Step 1
+
+Build Logistic Regression baseline.
+
+Step 2
+
+Build Decision Tree.
+
+Step 3
+
+Build Random Forest.
+
+Step 4
+
+Build XGBoost.
+
+Step 5
+
+Compare metrics.
+
+Step 6
+
+Perform cross-validation.
+
+Step 7
+
+Tune the strongest candidate models.
+
+Step 8
+
+Select the final model.
+
+Step 9
+
+Save the final model.
+
+Step 10
+
+Move reusable training code into src/train.py.
+
+41. Final Model Artifact
+
+The final repository should eventually contain something similar to:
+
+models/
+│
+└── credit_risk_pipeline.pkl
+
+This file should contain the preprocessing and model pipeline required for prediction.
+
+42. Connection to Deployment
+
+The training pipeline produces:
+
+credit_risk_pipeline.pkl
+
+The deployment application consumes it:
+
+Streamlit
+    ↓
+Load Pipeline
+    ↓
+Customer Input
+    ↓
+Prediction
+
+This creates a clean separation between:
+
+Training
+
+and:
+
+Inference
+43. Training vs Inference
+Training
+
+The model learns from historical data.
+
+Historical Data
+     ↓
+Training
+     ↓
+Model
+Inference
+
+The trained model predicts on new data.
+
+New Customer
+     ↓
+Trained Model
+     ↓
+Prediction
+
+These are different processes and should remain separated.
+
+44. Final Objective
+
+The objective of the training pipeline is to create a system that is:
+
+Reproducible
+Reliable
+Testable
+Explainable
+Easy to retrain
+Easy to deploy
+45. Conclusion
+
+A professional Machine Learning project should not depend entirely on manually executed notebooks.
+
+The notebooks are excellent for experimentation and learning, but reusable Python pipelines are required for reliable training and deployment.
+
+The German Credit Risk Prediction project will therefore gradually evolve from:
+
+Jupyter Notebook
+
+to:
+
+Reusable Training Pipeline
+
+and eventually:
+
+Automated MLOps Workflow
