@@ -288,3 +288,105 @@ It provides:
 More reliable estimates
 Better model comparison
 Better hyperparameter selection
+
+
+16. Choosing the Cross-Validation Metric
+
+Because the dataset contains approximately:
+
+70% Good Risk
+30% Bad Risk
+
+accuracy should not be the only optimization metric.
+
+For this project, we should consider:
+
+Recall
+F1 Score
+ROC-AUC
+
+especially for the bad-risk class.
+
+17. Stratified Cross-Validation
+
+For classification problems, stratified cross-validation is preferable.
+
+It attempts to preserve the class distribution in each fold.
+
+Conceptually:
+
+Each Fold
+≈
+70% Good Risk
+30% Bad Risk
+
+This produces more reliable validation results.
+
+18. Model Evaluation During Training
+
+Each model should generate predictions on validation or test data.
+
+Example:
+
+predictions = model.predict(
+    X_test
+)
+
+Probability predictions:
+
+probabilities = model.predict_proba(
+    X_test
+)[:, 1]
+
+The [:, 1] selects the probability of:
+
+Bad Risk
+
+because:
+
+0 → Good
+1 → Bad
+19. Evaluation Metrics
+
+Each model should be evaluated using:
+
+Accuracy
+Precision
+Recall
+F1 Score
+ROC-AUC
+
+Example:
+
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    roc_auc_score
+)
+20. Building a Model Comparison Table
+
+Instead of evaluating models separately, results should be stored in a structured table.
+
+Example:
+
+Model	Accuracy	Precision	Recall	F1	ROC-AUC
+Logistic Regression	-	-	-	-	-
+Decision Tree	-	-	-	-	-
+Random Forest	-	-	-	-	-
+XGBoost	-	-	-	-	-
+
+This makes comparison easier.
+
+21. Model Selection
+
+The final model should be selected based on:
+
+Performance
+Business requirements
+Stability
+Interpretability
+Computational requirements
+
+A model with slightly lower accuracy may still be preferable if it has substantially better recall for bad-risk customers.
