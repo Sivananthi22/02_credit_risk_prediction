@@ -505,3 +505,174 @@ Larger Minority Class
 SMOTE must only be applied to the training data.
 
 Never apply SMOTE to the test dataset.
+
+28. Why SMOTE Should Not Be Applied to Test Data
+
+The test dataset should represent the real distribution of unseen data.
+
+If synthetic samples are added to the test set:
+
+Evaluation becomes unrealistic
+Performance metrics may become misleading
+
+Correct:
+
+Training Data
+   ↓
+SMOTE
+   ↓
+Balanced Training Data
+
+Test data remains unchanged.
+
+29. Model Serialization
+
+Once the final model has been selected, it should be saved.
+
+This process is called:
+
+Model Serialization
+
+For example:
+
+import joblib
+
+joblib.dump(
+    model,
+    'models/credit_risk_model.pkl'
+)
+30. Why Save the Model?
+
+Without serialization, the application would need to retrain the model every time it starts.
+
+Instead:
+
+Training
+   ↓
+Save Model
+   ↓
+Application
+   ↓
+Load Model
+   ↓
+Predict
+
+This makes deployment much more efficient.
+
+31. Saving the Preprocessing Pipeline
+
+The model should be saved together with the preprocessing logic.
+
+This includes:
+
+Encoders
+Scaler
+Feature order
+
+A better approach is to use a Scikit-learn Pipeline and potentially a ColumnTransformer.
+
+Conceptually:
+
+Raw Input
+   ↓
+Preprocessing
+   ↓
+Model
+   ↓
+Prediction
+
+This reduces the risk of inconsistent transformations between training and production.
+
+32. Recommended Production Architecture
+
+Instead of manually managing separate transformations:
+
+Scaler
+Encoder
+Model
+
+we can eventually create:
+
+Pipeline
+ ├── Preprocessing
+ │    ├── Encoding
+ │    └── Scaling
+ │
+ └── Model
+
+Then the entire pipeline can be saved as one object.
+
+33. Why Pipelines are Better
+
+A pipeline ensures:
+
+Consistent preprocessing
+Reduced data leakage risk
+Easier deployment
+Easier retraining
+Cleaner code
+
+The production workflow becomes:
+
+Customer Input
+      ↓
+Pipeline
+      ↓
+Preprocessing
+      ↓
+Model
+      ↓
+Prediction
+34. Training Script
+
+Eventually, model training should move from the notebook into:
+
+src/train.py
+
+The script can perform:
+
+Load Data
+    ↓
+Preprocess
+    ↓
+Split Data
+    ↓
+Train Models
+    ↓
+Evaluate
+    ↓
+Select Model
+    ↓
+Save Model
+35. Recommended Training Structure
+
+A simplified structure:
+
+def load_data():
+    pass
+
+
+def preprocess_data():
+    pass
+
+
+def train_models():
+    pass
+
+
+def evaluate_models():
+    pass
+
+
+def save_model():
+    pass
+
+
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
+
+This creates clear separation of responsibilities.
