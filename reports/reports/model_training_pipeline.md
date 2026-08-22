@@ -390,3 +390,118 @@ Interpretability
 Computational requirements
 
 A model with slightly lower accuracy may still be preferable if it has substantially better recall for bad-risk customers.
+
+22. Hyperparameter Tuning
+
+Once a promising model has been identified, hyperparameters can be optimized.
+
+Examples:
+
+Random Forest
+n_estimators
+max_depth
+min_samples_split
+min_samples_leaf
+XGBoost
+n_estimators
+max_depth
+learning_rate
+subsample
+colsample_bytree
+23. Grid Search
+
+Grid Search evaluates predefined combinations.
+
+Example:
+
+param_grid = {
+    'max_depth': [3, 5, 7],
+    'n_estimators': [100, 200]
+}
+
+The algorithm evaluates combinations and selects the best according to the chosen scoring metric.
+
+24. Randomized Search
+
+Randomized Search samples combinations from specified distributions.
+
+It can be more efficient when the search space is large.
+
+Example:
+
+from sklearn.model_selection import RandomizedSearchCV
+
+This is particularly useful for models such as XGBoost where many hyperparameters can be tuned.
+
+25. Avoiding Overfitting During Tuning
+
+Hyperparameter tuning must use cross-validation.
+
+Do not repeatedly evaluate hundreds of configurations directly on the final test set.
+
+Correct:
+
+Training Data
+     ↓
+Cross-Validation
+     ↓
+Hyperparameter Tuning
+     ↓
+Final Model
+     ↓
+Test Set
+
+Incorrect:
+
+Training
+ ↓
+Test
+ ↓
+Tune
+ ↓
+Test Again
+ ↓
+Tune Again
+
+The second approach gradually causes the test set to influence model selection.
+
+26. Class Imbalance
+
+The target distribution is approximately:
+
+Good Risk = 70%
+Bad Risk = 30%
+
+This is moderate class imbalance.
+
+Potential approaches include:
+
+Class Weighting
+class_weight='balanced'
+SMOTE
+
+Synthetic Minority Over-sampling Technique.
+
+Threshold Adjustment
+
+Changing the probability threshold used for classification.
+
+These approaches should be evaluated rather than automatically applied.
+
+27. SMOTE
+
+SMOTE creates synthetic examples of the minority class.
+
+Conceptually:
+
+Existing Bad-Risk Samples
+        ↓
+Identify Similar Samples
+        ↓
+Generate Synthetic Samples
+        ↓
+Larger Minority Class
+
+SMOTE must only be applied to the training data.
+
+Never apply SMOTE to the test dataset.
